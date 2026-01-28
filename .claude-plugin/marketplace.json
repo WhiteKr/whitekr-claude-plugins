@@ -1,0 +1,13 @@
+{
+  "name": "whitekr-claude-plugins",
+  "owner": {
+    "name": "WhiteKr",
+    "email": "white_kr@icloud.com"
+  },
+  "metadata": {
+    "description": "Claude Code 생산성 도구 모음",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": []
+}
