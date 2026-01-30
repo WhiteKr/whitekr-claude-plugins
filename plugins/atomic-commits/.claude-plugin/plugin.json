@@ -1,0 +1,11 @@
+{
+  "name": "atomic-commits",
+  "version": "1.0.0",
+  "description": "Automate git commits following atomic commits and conventional commits best practices",
+  "author": {
+    "name": "WhiteKr",
+    "email": "white_kr@icloud.com"
+  },
+  "license": "MIT",
+  "keywords": ["git", "commits", "conventional-commits", "atomic-commits", "automation"]
+}
