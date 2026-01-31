@@ -1,0 +1,11 @@
+{
+  "name": "worktree-orchestrator",
+  "version": "0.1.0",
+  "description": "Task-based parallel worktree orchestration for efficient multi-branch development",
+  "author": {
+    "name": "WhiteKr",
+    "email": "white_kr@icloud.com"
+  },
+  "license": "MIT",
+  "keywords": ["git", "worktree", "parallel-development", "multi-branch", "orchestration"]
+}
