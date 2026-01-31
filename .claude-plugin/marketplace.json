@@ -1,11 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "whitekr-claude-plugins",
-  "version": "1.0.0",
-  "description": "Claude Code 생산성 도구 모음",
   "owner": {
     "name": "WhiteKr",
     "email": "white_kr@icloud.com"
+  },
+  "metadata": {
+    "description": "Claude Code 생산성 도구 모음",
+    "version": "1.0.0"
   },
   "plugins": [
     {
