@@ -3,11 +3,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash(git commit*)",
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Analyze this Bash command. If it's a `git commit` with -m flag, validate conventional commits format.\n\nFormat: <type>[scope]: <description>\nValid types: feat, fix, docs, style, refactor, perf, test, build, ci, chore\n\nRules:\n1. Type required and valid\n2. Colon and space after type/scope\n3. Description lowercase (or appropriate case for non-Latin scripts), imperative, <72 chars, no period\n4. Breaking changes: `!` or BREAKING CHANGE footer\n5. UTF-8 characters are fully supported. Descriptions may be in any language (Korean, Japanese, Chinese, Spanish, etc.) as long as they follow conventional commits format\n\nCheck .claude/atomic-commits.local.md for validation_mode (strict/warning/off, default: warning) and custom_types.\n\nIf invalid:\n- strict mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"deny\", \"updatedInput\": null}, \"systemMessage\": \"[explanation]\"}\n- warning mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}, \"systemMessage\": \"⚠️ [warning]\"}\n\nIf valid or not commit: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}}\n\nCommand: $TOOL_INPUT",
+            "prompt": "Validate this git commit command follows conventional commits format.\n\nFormat: <type>[scope]: <description>\nValid types: feat, fix, docs, style, refactor, perf, test, build, ci, chore\n\nRules:\n1. Type required and valid\n2. Colon and space after type/scope\n3. Description lowercase (or appropriate case for non-Latin scripts), imperative, <72 chars, no period\n4. Breaking changes: `!` or BREAKING CHANGE footer\n5. UTF-8 characters are fully supported. Descriptions may be in any language (Korean, Japanese, Chinese, Spanish, etc.) as long as they follow conventional commits format\n\nCheck .claude/atomic-commits.local.md for validation_mode (strict/warning/off, default: warning) and custom_types.\n\nIf invalid:\n- strict mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"deny\", \"updatedInput\": null}, \"systemMessage\": \"[explanation]\"}\n- warning mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}, \"systemMessage\": \"⚠️ [warning]\"}\n\nIf valid: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}}\n\nCommand: $TOOL_INPUT",
             "timeout": 10
           }
         ]
