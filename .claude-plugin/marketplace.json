@@ -20,6 +20,17 @@
       },
       "source": "./plugins/atomic-commits",
       "category": "productivity"
+    },
+    {
+      "name": "worktree-orchestrator",
+      "description": "Task-based parallel worktree orchestration for efficient multi-branch development",
+      "version": "0.1.0",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": "./plugins/worktree-orchestrator",
+      "category": "productivity"
     }
   ]
 }
