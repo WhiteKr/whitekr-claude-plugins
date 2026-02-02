@@ -7,8 +7,5 @@
     "email": "white_kr@icloud.com"
   },
   "license": "MIT",
-  "keywords": ["git", "worktree", "parallel-development", "multi-branch", "orchestration"],
-  "requirements": {
-    "git": ">=2.17.0"
-  }
+  "keywords": ["git", "worktree", "parallel-development", "multi-branch", "orchestration"]
 }
