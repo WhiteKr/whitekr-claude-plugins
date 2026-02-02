@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$CLAUDE_PLUGIN_DIR/hooks/scripts/worktree-dashboard.sh\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/worktree-dashboard.sh\""
           }
         ]
       }
