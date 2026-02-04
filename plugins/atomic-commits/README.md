@@ -244,6 +244,16 @@ docs(readme): 설치 가이드 업데이트
 2. Hunk 단위로 선택적 staging
 3. 각 hunk를 별도 커밋으로 생성
 
+### 훅이 너무 자주 실행됨
+
+**문제:** PreToolUse 훅이 git commit 명령마다 실행되어 방해됨
+
+**해결:**
+1. 훅은 `-m` 또는 `--message` 옵션이 있는 경우만 실행됩니다
+2. 대화형 커밋(`git commit` without `-m`)은 검증하지 않습니다
+3. `--amend`, `--fixup` 등은 자동으로 제외됩니다
+4. 검증을 완전히 비활성화하려면 `.claude/atomic-commits.local.md`에서 `validation_mode: off` 설정
+
 ## 라이선스
 
 MIT License

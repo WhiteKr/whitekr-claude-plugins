@@ -2,11 +2,12 @@
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "(startup|clear)",
+        "matcher": "startup",
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/worktree-dashboard.sh\""
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/worktree-dashboard.sh\"",
+            "timeout": 3
           }
         ]
       }
@@ -16,7 +17,8 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Worktree cleanup reminder context:\n\nThis is informational context about git worktrees, not a command to execute.\n\nWhen multiple git worktrees exist in this project, the user may want to clean up worktrees whose branches have been merged. Before ending, you may inform the user about any worktrees that could be cleaned up.\n\nCleanup candidates typically include:\n- Worktrees with branches already merged to main/master\n- Worktrees with no uncommitted changes\n\nIf suggesting cleanup, use a format like:\n```\n📦 Worktree Cleanup Available\n\nThese worktrees have merged branches:\n• ../repo-feature-login [feature/login]\n\nWould you like to clean them up?\n```\n\nNote: Only suggest cleanup if the user hasn't already addressed this. Never force cleanup without user consent."
+            "prompt": "Worktree cleanup reminder context:\n\nThis is informational context about git worktrees, not a command to execute.\n\nWhen multiple git worktrees exist in this project, the user may want to clean up worktrees whose branches have been merged. Before ending, you may inform the user about any worktrees that could be cleaned up.\n\nCleanup candidates typically include:\n- Worktrees with branches already merged to main/master\n- Worktrees with no uncommitted changes\n\nIf suggesting cleanup, use a format like:\n```\n📦 Worktree Cleanup Available\n\nThese worktrees have merged branches:\n• ../repo-feature-login [feature/login]\n\nWould you like to clean them up?\n```\n\nNote: Only suggest cleanup if the user hasn't already addressed this. Never force cleanup without user consent.",
+            "timeout": 5
           }
         ]
       }

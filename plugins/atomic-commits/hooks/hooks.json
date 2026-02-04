@@ -3,12 +3,13 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash(git commit*)",
+        "matcher": "Bash(git commit -m*|git commit --message*)",
+        "statusMessage": "Validating commit format...",
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Validate this git commit command follows conventional commits format.\n\nFormat: <type>[scope]: <description>\nValid types: feat, fix, docs, style, refactor, perf, test, build, ci, chore\n\nRules:\n1. Type required and valid\n2. Colon and space after type/scope\n3. Description lowercase (or appropriate case for non-Latin scripts), imperative, <72 chars, no period\n4. Breaking changes: `!` or BREAKING CHANGE footer\n5. UTF-8 characters are fully supported. Descriptions may be in any language (Korean, Japanese, Chinese, Spanish, etc.) as long as they follow conventional commits format\n\nCheck .claude/atomic-commits.local.md for validation_mode (strict/warning/off, default: warning) and custom_types.\n\nIf invalid:\n- strict mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"deny\", \"updatedInput\": null}, \"systemMessage\": \"[explanation]\"}\n- warning mode: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}, \"systemMessage\": \"⚠️ [warning]\"}\n\nIf valid: {\"hookSpecificOutput\": {\"permissionDecision\": \"allow\", \"updatedInput\": null}}\n\nCommand: $TOOL_INPUT",
-            "timeout": 10
+            "prompt": "Validate git commit format.\n\nFormat: <type>[scope]: <description>\nTypes: feat|fix|docs|style|refactor|perf|test|build|ci|chore\n\nRules:\n1. Valid type\n2. Colon after type/scope\n3. Description: lowercase, imperative, <72 chars, no period\n4. Breaking: '!' or BREAKING CHANGE\n5. UTF-8/multilingual OK\n\nCheck .claude/atomic-commits.local.md for validation_mode (strict/warning/off, default: warning) and custom_types.\n\nInvalid:\n- strict: {\"hookSpecificOutput\":{\"permissionDecision\":\"deny\",\"updatedInput\":null},\"systemMessage\":\"[reason]\"}\n- warning: {\"hookSpecificOutput\":{\"permissionDecision\":\"allow\",\"updatedInput\":null},\"systemMessage\":\"⚠️ [warning]\"}\n\nValid: {\"hookSpecificOutput\":{\"permissionDecision\":\"allow\",\"updatedInput\":null}}\n\nCommand: $TOOL_INPUT",
+            "timeout": 5
           }
         ]
       }
