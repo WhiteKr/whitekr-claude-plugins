@@ -251,8 +251,9 @@ docs(readme): 설치 가이드 업데이트
 **해결:**
 1. 훅은 `-m` 또는 `--message` 옵션이 있는 경우만 실행됩니다
 2. 대화형 커밋(`git commit` without `-m`)은 검증하지 않습니다
-3. `--amend`, `--fixup` 등은 자동으로 제외됩니다
-4. 검증을 완전히 비활성화하려면 `.claude/atomic-commits.local.md`에서 `validation_mode: off` 설정
+3. `--amend --no-edit`, `--fixup` 등 메시지 변경 없는 명령은 제외됩니다
+4. `--amend -m "new message"`처럼 새 메시지로 amend하는 경우는 검증됩니다
+5. 검증을 완전히 비활성화하려면 `.claude/atomic-commits.local.md`에서 `validation_mode: off` 설정
 
 ## 라이선스
 
