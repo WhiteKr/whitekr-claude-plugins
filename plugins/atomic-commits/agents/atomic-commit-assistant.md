@@ -53,6 +53,14 @@ git branch --show-current   # Current branch
 
 Understand what changed, what types of changes, and if they're related.
 
+**Hunk-Level 분석 (핵심):**
+단순히 파일 단위가 아닌, `git diff` 출력의 각 hunk를 개별적으로 분석합니다:
+- 각 파일의 diff를 읽고, 각 hunk(`@@ ... @@` 블록)의 목적을 개별 판단
+- 하나의 파일 안에 서로 다른 논리적 커밋에 속하는 변경이 섞여 있는지 확인
+- 동일 파일 내에서도 목적이 다른 hunk는 반드시 별도 커밋으로 분리 제안
+
+이 분석이 Phase 2의 분리 제안 품질을 결정합니다. **파일 단위가 아닌 변경 단위(hunk)로 사고하세요.**
+
 **Read User Settings** from `.claude/atomic-commits.local.md`:
 
 ```bash
@@ -96,19 +104,30 @@ Present the full proposal as a numbered list:
 ## 커밋 분리 제안
 
 ### Commit #1: feat(auth): add OAuth2 login flow
-📁 Files:
-  - src/auth/oauth.ts
-  - tests/auth/oauth.test.ts
+📁 Changes:
+  - src/auth/oauth.ts — 전체 파일
+  - tests/auth/oauth.test.ts — 전체 파일
 📝 Rationale: Complete OAuth2 feature implementation
 
 ### Commit #2: fix(api): handle empty query
-📁 Files:
-  - src/api/search.ts
+📁 Changes:
+  - src/api/search.ts — lines 23-35 (빈 쿼리 예외 처리 추가)
 📝 Rationale: Independent bugfix
 
+### Commit #3: refactor(api): simplify error response format
+📁 Changes:
+  - src/api/search.ts — lines 50-72 (에러 응답 포맷 단순화)
+📝 Rationale: Readability improvement, independent of bugfix
+
 ---
-총 2개의 atomic commit으로 분리합니다.
+총 3개의 atomic commit으로 분리합니다.
+⚠️ src/api/search.ts는 Commit #2, #3에 걸쳐 hunk 단위로 분리됩니다.
 ```
+
+**동일 파일 분리 시 포맷:**
+- 파일의 모든 변경이 하나의 커밋에 속할 때: `파일명 — 전체 파일`
+- 파일 내 일부 hunk만 해당 커밋에 속할 때: `파일명 — lines X-Y (변경 설명)`
+- 하나의 파일이 여러 커밋에 걸칠 때: `⚠️` 경고로 명시
 
 Then **immediately** use `AskUserQuestion` to get feedback:
 
@@ -138,8 +157,14 @@ For each proposed commit, show the details and ask for approval:
 
 📌 feat(auth): add OAuth2 login flow
 📁 Staging:
-  - src/auth/oauth.ts
-  - tests/auth/oauth.test.ts
+  - src/auth/oauth.ts — 전체 파일
+  - tests/auth/oauth.test.ts — 전체 파일
+
+## Commit #2 of N
+
+📌 fix(api): handle empty query
+📁 Staging:
+  - src/api/search.ts — lines 23-35 (hunk 단위 스테이징)
 ```
 
 Then use `AskUserQuestion`:
@@ -197,10 +222,46 @@ AskUserQuestion:
 
 For each approved commit:
 
-```bash
-# Stage specific files only (never use git add . or git add -A)
-git add file1.ts file2.ts
+#### 스테이징 전략 결정
 
+각 커밋에 대해, 포함될 파일의 모든 변경이 해당 커밋에 속하는지 판단합니다:
+
+**Case A: 파일 전체가 하나의 커밋에 속할 때 → File-level staging**
+```bash
+git add file1.ts file2.ts
+```
+
+**Case B: 파일 내 일부 hunk만 해당 커밋에 속할 때 → Hunk-level staging**
+
+`git diff` 출력에서 해당 hunk만 추출하여 `git apply --cached`로 스테이징합니다:
+
+```bash
+# 1. 해당 hunk만 포함하는 패치를 heredoc으로 작성하여 인덱스에 적용
+git apply --cached <<'PATCH'
+diff --git a/src/api/search.ts b/src/api/search.ts
+--- a/src/api/search.ts
++++ b/src/api/search.ts
+@@ -23,6 +23,10 @@
+ context line
++new line belonging to this commit
++another new line
+ context line
+PATCH
+
+# 2. 스테이징 결과 확인 (필수)
+git diff --cached -- src/api/search.ts
+```
+
+**Hunk-level staging 규칙:**
+- `git diff` 출력에서 필요한 hunk의 `@@ ... @@` 헤더와 내용을 정확히 복사
+- diff 헤더(`diff --git`, `--- a/`, `+++ b/`)를 반드시 포함
+- context 라인(공백 접두사)을 정확히 보존
+- 스테이징 후 **반드시** `git diff --cached`로 의도한 변경만 스테이징되었는지 확인
+- 문제 발생 시 `git reset HEAD -- <file>`로 해당 파일의 스테이징을 초기화하고 재시도
+
+#### 커밋 실행
+
+```bash
 # Commit with heredoc format
 git commit -m "$(cat <<'EOF'
 feat(auth): add OAuth2 login flow
@@ -317,21 +378,16 @@ Each commit MUST:
 
 **Too many files**: Group logically if they serve single purpose
 
-**Single file with mixed changes**: Suggest using `git add -p` for partial staging and ask:
-```
-AskUserQuestion:
-  question: "이 파일에 서로 다른 성격의 변경이 섞여 있습니다. 부분 스테이징(git add -p)을 사용할까요?"
-  choices:
-    - "부분 스테이징 사용 (Use partial staging)"
-    - "파일 전체를 하나의 커밋에 포함 (Include entire file in one commit)"
-```
+**Single file with mixed changes**: Phase 1의 hunk-level 분석에서 이미 식별되어야 합니다. Phase 2에서 해당 파일의 hunk를 별도 커밋으로 분리 제안하고, Phase 4에서 `git apply --cached`를 사용하여 hunk 단위로 스테이징합니다. 사용자에게 별도로 부분 스테이징 여부를 묻지 않고, **기본적으로 hunk 단위 분리를 제안**합니다.
 
 ## Critical Rules
 
 1. **AskUserQuestion을 반드시 사용** - 자연어로 확인을 요청하지 말고, 항상 AskUserQuestion 도구로 선택지를 제공
 2. **한 번에 하나의 질문** - 여러 질문을 동시에 하지 않고, 한 단계씩 진행
 3. **선택지는 명확하게** - 각 선택지가 어떤 결과를 가져오는지 명확히 표현
-4. **Stage explicit file paths** - No wildcards, no `git add .` or `git add -A`
-5. **Use heredoc for all commit messages**
-6. **Show result after each commit**
-7. **Apply user settings from .local.md file**
+4. **Hunk 단위로 사고** - 파일 단위가 아닌 변경(hunk) 단위로 분석하고 스테이징. 동일 파일 내 혼합 변경이 있으면 `git apply --cached`로 hunk 단위 스테이징 사용
+5. **Stage precisely** - No wildcards, no `git add .` or `git add -A`. 파일의 모든 변경이 현재 커밋에 속하는 경우에만 `git add <file>` 사용
+6. **Use heredoc for all commit messages**
+7. **Show result after each commit**
+8. **Apply user settings from .local.md file**
+9. **Verify after hunk staging** - `git apply --cached` 사용 후 반드시 `git diff --cached`로 의도한 변경만 스테이징되었는지 확인
