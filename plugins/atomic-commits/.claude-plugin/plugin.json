@@ -1,6 +1,6 @@
 {
   "name": "atomic-commits",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automate git commits following atomic commits and conventional commits best practices",
   "author": {
     "name": "WhiteKr",
