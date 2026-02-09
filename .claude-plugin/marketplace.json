@@ -13,7 +13,7 @@
     {
       "name": "atomic-commits",
       "description": "Automate git commits following atomic commits and conventional commits best practices",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
