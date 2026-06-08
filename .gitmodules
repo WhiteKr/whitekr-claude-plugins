@@ -1,0 +1,8 @@
+[submodule "plugins/commit"]
+	path = plugins/commit
+	url = https://github.com/WhiteKr/claude-plugin-commit.git
+	branch = main
+[submodule "plugins/pull"]
+	path = plugins/pull
+	url = https://github.com/WhiteKr/claude-plugin-pull.git
+	branch = main
