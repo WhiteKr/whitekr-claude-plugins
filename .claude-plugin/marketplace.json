@@ -29,6 +29,16 @@
       },
       "source": { "source": "github", "repo": "WhiteKr/claude-plugin-pull" },
       "category": "productivity"
+    },
+    {
+      "name": "changelog",
+      "description": "Analyze commits (including submodules) since the last release tag and output a CHANGELOG grouped by user impact — chat-only, no file written",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": { "source": "github", "repo": "WhiteKr/claude-plugin-changelog" },
+      "category": "productivity"
     }
   ]
 }
