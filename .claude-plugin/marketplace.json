@@ -17,7 +17,7 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "github", "repo": "WhiteKr/claude-plugin-commit" },
+      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-commit.git" },
       "category": "productivity"
     },
     {
@@ -27,7 +27,7 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "github", "repo": "WhiteKr/claude-plugin-pull" },
+      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-pull.git" },
       "category": "productivity"
     },
     {
@@ -37,7 +37,7 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "github", "repo": "WhiteKr/claude-plugin-changelog" },
+      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-changelog.git" },
       "category": "productivity"
     }
   ]
