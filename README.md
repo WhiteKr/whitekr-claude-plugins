@@ -13,8 +13,8 @@ Claude Code 플러그인 마켓플레이스 — git 워크플로우 생산성 �
 | 플러그인 | 버전 | 설명 | 설치 |
 |----------|------|------|------|
 | [**commit**](https://github.com/WhiteKr/claude-plugin-commit) | 0.5.0 | 논리적 의도 단위(hunk 레벨)로만 git commit을 만드는 워크플로우. 메시지는 레포의 기존 언어/관례를 따름. | `/plugin install commit@whitekr-claude-plugins` |
-| [**pull**](https://github.com/WhiteKr/claude-plugin-pull) | 0.2.0 | CWD 하위 모든 레포 + settings의 외부 워크스페이스를 병렬 fetch 후 outdated만 rebase-pull. submodule 업데이트도 보고. | `/plugin install pull@whitekr-claude-plugins` |
-| [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.0 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
+| [**pull**](https://github.com/WhiteKr/claude-plugin-pull) | 0.2.1 | CWD 하위 모든 레포 + settings의 외부 워크스페이스를 병렬 fetch 후 outdated만 rebase-pull. submodule 업데이트도 보고. | `/plugin install pull@whitekr-claude-plugins` |
+| [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.1 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
 
 각 플러그인의 상세 사용법은 해당 저장소를 참고하세요.
 
