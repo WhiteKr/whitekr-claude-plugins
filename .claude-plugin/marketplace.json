@@ -17,7 +17,10 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-commit.git" },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-commit.git"
+      },
       "category": "productivity"
     },
     {
@@ -27,7 +30,10 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-pull.git" },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-pull.git"
+      },
       "category": "productivity"
     },
     {
@@ -37,7 +43,23 @@
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"
       },
-      "source": { "source": "url", "url": "https://github.com/WhiteKr/claude-plugin-changelog.git" },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-changelog.git"
+      },
+      "category": "productivity"
+    },
+    {
+      "name": "mermaid",
+      "description": "Render ```mermaid fences in assistant replies as Unicode box-drawing diagrams in the terminal transcript — offline, via a ui.render hook",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-mermaid.git"
+      },
       "category": "productivity"
     }
   ]

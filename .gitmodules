@@ -10,3 +10,7 @@
 	path = plugins/changelog
 	url = https://github.com/WhiteKr/claude-plugin-changelog.git
 	branch = main
+[submodule "plugins/mermaid"]
+	path = plugins/mermaid
+	url = https://github.com/WhiteKr/claude-plugin-mermaid.git
+	branch = main
