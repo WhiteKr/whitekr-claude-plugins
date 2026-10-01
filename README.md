@@ -13,9 +13,9 @@ Claude Code 플러그인 마켓플레이스 — git 워크플로우와 터미널
 | 플러그인 | 버전 | 설명 | 설치 |
 |----------|------|------|------|
 | [**commit**](https://github.com/WhiteKr/claude-plugin-commit) | 1.1.0 | git commit 작성 규칙. 커밋당 자기완결적인 변경 하나, 메시지는 저장소 관습 우선. | `/plugin install commit@whitekr-claude-plugins` |
-| [**pull**](https://github.com/WhiteKr/claude-plugin-pull) | 0.2.2 | CWD 하위 모든 레포 + settings의 외부 워크스페이스를 병렬 fetch 후 outdated만 rebase-pull. submodule 업데이트도 보고. | `/plugin install pull@whitekr-claude-plugins` |
+| [**pull**](https://github.com/WhiteKr/claude-plugin-pull) | 0.2.3 | CWD 하위 모든 레포 + settings의 외부 워크스페이스를 병렬 fetch 후 outdated만 rebase-pull. submodule 업데이트도 보고. | `/plugin install pull@whitekr-claude-plugins` |
 | [**mermaid**](https://github.com/WhiteKr/claude-plugin-mermaid) | 0.1.0 | 응답의 ```` ```mermaid ```` 블록을 터미널에서 유니코드 박스 다이어그램으로 바꿔 그림 (`/show-me` 출력 등). 오프라인 동작. | `/plugin install mermaid@whitekr-claude-plugins` |
-| [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.2 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
+| [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.3 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
 
 각 플러그인의 상세 사용법은 해당 저장소를 참고하세요.
 
