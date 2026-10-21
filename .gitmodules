@@ -14,3 +14,7 @@
 	path = plugins/mermaid
 	url = https://github.com/WhiteKr/claude-plugin-mermaid.git
 	branch = main
+[submodule "plugins/context-meter"]
+	path = plugins/context-meter
+	url = https://github.com/WhiteKr/claude-plugin-context-meter.git
+	branch = main

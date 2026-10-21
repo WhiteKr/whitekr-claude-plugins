@@ -61,6 +61,19 @@
         "url": "https://github.com/WhiteKr/claude-plugin-mermaid.git"
       },
       "category": "productivity"
+    },
+    {
+      "name": "context-meter",
+      "description": "입력창 아래 한 줄에 콘텍스트 저하 구간과 사용량 한도를 보여 주는 미터",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-context-meter.git"
+      },
+      "category": "productivity"
     }
   ]
 }
