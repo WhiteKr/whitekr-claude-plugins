@@ -51,7 +51,7 @@
     },
     {
       "name": "mermaid",
-      "description": "Render ```mermaid fences in assistant replies as diagrams — Unicode box-drawing in the terminal, SVG on desktop, VS Code and mobile — offline, via a ui.render hook",
+      "description": "Render ```mermaid fences in assistant replies as diagrams — Unicode box-drawing in the terminal (lovely-mermaid), light/dark vector SVG on desktop, VS Code and mobile (beautiful-mermaid + dagre) — offline, via a ui.render hook",
       "author": {
         "name": "WhiteKr",
         "email": "white_kr@icloud.com"

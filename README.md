@@ -14,7 +14,7 @@ Claude Code 플러그인 마켓플레이스 — git 워크플로우와 터미널
 |----------|------|------|------|
 | [**commit**](https://github.com/WhiteKr/claude-plugin-commit) | 1.1.1 | git commit 작성 규칙. 커밋당 자기완결적인 변경 하나, 메시지는 저장소 관습 우선. | `/plugin install commit@whitekr-claude-plugins` |
 | [**pull**](https://github.com/WhiteKr/claude-plugin-pull) | 0.2.4 | CWD 하위 모든 레포 + settings의 외부 워크스페이스를 병렬 fetch 후 outdated만 rebase-pull. submodule 업데이트도 보고. | `/plugin install pull@whitekr-claude-plugins` |
-| [**mermaid**](https://github.com/WhiteKr/claude-plugin-mermaid) | 0.2.0 | 응답의 ```` ```mermaid ```` 블록을 다이어그램으로 바꿔 그림 (`/show-me` 출력 등). 터미널은 유니코드 박스, 데스크톱·VS Code·모바일은 SVG. 오프라인 동작. | `/plugin install mermaid@whitekr-claude-plugins` |
+| [**mermaid**](https://github.com/WhiteKr/claude-plugin-mermaid) | 0.2.0 | 응답의 ```` ```mermaid ```` 블록을 다이어그램으로 바꿔 그림 (`/show-me` 출력 등). 터미널은 유니코드 박스(lovely-mermaid), 데스크톱·VS Code·모바일은 라이트/다크 벡터 SVG(beautiful-mermaid + dagre). 오프라인 동작. | `/plugin install mermaid@whitekr-claude-plugins` |
 | [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.3 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
 | [**context-meter**](https://github.com/WhiteKr/claude-plugin-context-meter) | 0.2.1 | 입력창에 한 줄 미터를 그려 콘텍스트 저하 구간과 5시간·7일·지출 한도 사용량을 보여 줌. 다음 구간, 자동 압축, 한도 소진까지 남은 양도 예측. | `/plugin install context-meter@whitekr-claude-plugins` |
 
