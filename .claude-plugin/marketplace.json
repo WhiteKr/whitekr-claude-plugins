@@ -74,6 +74,19 @@
         "url": "https://github.com/WhiteKr/claude-plugin-context-meter.git"
       },
       "category": "productivity"
+    },
+    {
+      "name": "secret-guard",
+      "description": "코드, 도구 출력, 대화 속 키와 토큰을 모델에게서 가리고, 도구가 실행될 때만 실제 값으로 바꿔 넣는 플러그인",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-secret-guard.git"
+      },
+      "category": "security"
     }
   ]
 }
