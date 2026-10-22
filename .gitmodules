@@ -18,3 +18,7 @@
 	path = plugins/context-meter
 	url = https://github.com/WhiteKr/claude-plugin-context-meter.git
 	branch = main
+[submodule "plugins/secret-guard"]
+	path = plugins/secret-guard
+	url = https://github.com/WhiteKr/claude-plugin-secret-guard.git
+	branch = main
