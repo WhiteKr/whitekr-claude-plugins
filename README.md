@@ -15,7 +15,7 @@ Claude Code 플러그인 마켓플레이스 — git 워크플로우와 터미널
 | [**mermaid**](https://github.com/WhiteKr/claude-plugin-mermaid) | 0.2.1 | 응답의 ```` ```mermaid ```` 블록을 다이어그램으로 바꿔 그림 (`/show-me` 출력 등). 터미널은 유니코드 박스(lovely-mermaid), 데스크톱·VS Code·모바일은 라이트/다크 벡터 SVG(beautiful-mermaid + dagre). 오프라인 동작. | `/plugin install mermaid@whitekr-claude-plugins` |
 | [**changelog**](https://github.com/WhiteKr/claude-plugin-changelog) | 0.1.3 | 마지막 배포 태그 이후 커밋(서브모듈 포함)을 최종 diff 기준으로 분석해 사용자 영향도별 CHANGELOG를 채팅에 출력 (파일 생성 없음). | `/plugin install changelog@whitekr-claude-plugins` |
 | [**context-meter**](https://github.com/WhiteKr/claude-plugin-context-meter) | 0.2.2 | 입력창에 한 줄 미터를 그려 콘텍스트 저하 구간과 5시간·7일·지출 한도 사용량을 보여 줌. 다음 구간, 자동 압축, 한도 소진까지 남은 양도 예측. | `/plugin install context-meter@whitekr-claude-plugins` |
-| [**secret-guard**](https://github.com/WhiteKr/claude-plugin-secret-guard) | 0.1.5 | 코드, 도구 출력, 대화 속 키와 토큰을 모델에게는 `<<secret:…>>` 자리표시자로 가리고, Edit·Write·Bash가 실행될 때만 실제 값으로 바꿔 넣음. 화면에는 마우스를 올리면 드러나는 칩으로 표시. | `/plugin install secret-guard@whitekr-claude-plugins` |
+| [**secret-guard**](https://github.com/WhiteKr/claude-plugin-secret-guard) | 0.1.6 | 코드, 도구 출력, 대화 속 키와 토큰을 모델에게는 `<<secret:…>>` 자리표시자로 가리고, Edit·Write·Bash가 실행될 때만 실제 값으로 바꿔 넣음. 화면에는 마우스를 올리면 드러나는 칩으로 표시하고, 칩 옆 📋 버튼으로 실제 값을 클립보드에 복사. | `/plugin install secret-guard@whitekr-claude-plugins` |
 
 각 플러그인의 상세 사용법은 해당 저장소를 참고하세요.
 
