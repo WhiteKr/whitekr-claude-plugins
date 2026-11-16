@@ -14,3 +14,7 @@
 	path = plugins/secret-guard
 	url = https://github.com/WhiteKr/claude-plugin-secret-guard.git
 	branch = main
+[submodule "plugins/clawd-buddy"]
+	path = plugins/clawd-buddy
+	url = https://github.com/WhiteKr/claude-plugin-clawd-buddy.git
+	branch = main
