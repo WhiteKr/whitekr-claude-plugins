@@ -11,19 +11,6 @@
   },
   "plugins": [
     {
-      "name": "changelog",
-      "description": "Analyze commits (including submodules) since the last release tag and output a CHANGELOG grouped by user impact — chat-only, no file written",
-      "author": {
-        "name": "WhiteKr",
-        "email": "white_kr@icloud.com"
-      },
-      "source": {
-        "source": "url",
-        "url": "https://github.com/WhiteKr/claude-plugin-changelog.git"
-      },
-      "category": "productivity"
-    },
-    {
       "name": "mermaid",
       "description": "Render ```mermaid fences in assistant replies as diagrams — Unicode box-drawing in the terminal (lovely-mermaid), light/dark vector SVG on desktop, VS Code and mobile (beautiful-mermaid + dagre) — offline, via a ui.render hook",
       "author": {
