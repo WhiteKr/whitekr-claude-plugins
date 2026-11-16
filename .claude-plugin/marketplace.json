@@ -61,6 +61,19 @@
         "url": "https://github.com/WhiteKr/claude-plugin-secret-guard.git"
       },
       "category": "security"
+    },
+    {
+      "name": "clawd-buddy",
+      "description": "입력창 위에서 Claude가 하는 일을 따라 하는 픽셀 게 Clawd (데스크톱 전용)",
+      "author": {
+        "name": "WhiteKr",
+        "email": "white_kr@icloud.com"
+      },
+      "source": {
+        "source": "url",
+        "url": "https://github.com/WhiteKr/claude-plugin-clawd-buddy.git"
+      },
+      "category": "productivity"
     }
   ]
 }
